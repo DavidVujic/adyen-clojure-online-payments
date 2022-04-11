@@ -10,10 +10,8 @@
 
 (def secrets-file "env.edn")
 
-(defn from-config []
+(defn from-file []
   (try
     (edn/read-string (slurp secrets-file))
     (catch java.io.FileNotFoundException e
       (println e))))
-
-(def options (from-config))

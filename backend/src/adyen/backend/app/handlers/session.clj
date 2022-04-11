@@ -9,6 +9,8 @@
                    options))
 
 (defn handler [{:keys [json-params]}]
-  (let [response (create-session json-params config/options)]
-    {:status 200 :body (select-keys response [:id :sessionData])}))
+  (let [options  (config/from-file)
+        response (create-session json-params options)]
+    {:status 200
+     :body   (select-keys response [:id :sessionData])}))
 
