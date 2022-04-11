@@ -1,0 +1,20 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src/main"]
+
+ :dependencies
+ [[reagent "1.1.1"]
+  [metosin/reitit "0.5.18"]
+  [metosin/reitit-spec "0.5.18"]
+  [metosin/reitit-frontend "0.5.18"]]
+
+ :dev-http {8080 "public"}
+
+ :builds
+ {:frontend
+  {:target   :browser
+   :modules  {:main {:init-fn adyen.frontend.app/init}}
+   :devtools {:after-load adyen.frontend.app/start}
+   }
+  }
+ }
