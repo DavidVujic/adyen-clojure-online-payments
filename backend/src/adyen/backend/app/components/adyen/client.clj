@@ -2,8 +2,8 @@
   (:import (com.adyen Client)
            (com.adyen.enums Environment)))
 
-(defn ->environment [api-env]
-  (if (= api-env "test") Environment/TEST ""))
+(defn ->environment [environment]
+  (if (= environment "test") Environment/TEST "<Insert something here>"))
 
-(defn create [{:keys [api-env api-token]}]
-  (Client. api-token (->environment api-env)))
+(defn create [{:keys [environment api-token]}]
+  (Client. api-token (->environment environment)))

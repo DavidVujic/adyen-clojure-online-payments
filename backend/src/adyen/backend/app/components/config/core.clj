@@ -4,9 +4,10 @@
 ;; Expecting a config file with necessary data:
 ;;  {:merchant     "<Merchant>"
 ;;   :api-token    "<api-token>"
+;;   :client-key   "<client-key>"
 ;;   :return-url   "<return url>"
 ;;   :country-code "<country code>"
-;;   :api-env      "test"}
+;;   :environment  "test"}
 
 (def secrets-file "env.edn")
 

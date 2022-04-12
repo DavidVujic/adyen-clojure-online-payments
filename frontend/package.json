@@ -8,5 +8,10 @@
     "@adyen/adyen-web": "^5.13.0",
     "react": "17.x",
     "react-dom": "17.x"
+  },
+  "scripts": {
+      "copy-css": "cp ./node_modules/@adyen/adyen-web/dist/adyen.css ./public/css/adyen.css",
+      "copy-css-map": "cp ./node_modules/@adyen/adyen-web/dist/adyen.css.map ./public/css/adyen.css.map",
+      "copy-adyen-files": "npm run copy-css && npm run copy-css-map"
   }
 }

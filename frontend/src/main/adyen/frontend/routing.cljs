@@ -4,14 +4,20 @@
    [reagent.core :as r]
    [reitit.coercion.spec :as rss]
    [reitit.frontend :as rf]
-   [reitit.frontend.easy :as rfe]))
+   [reitit.frontend.easy :as rfe]
+   [re-frame.core :as re-frame]))
+
+(def fake-data {:amount 1000 :currency "EUR" :reference "HELLOWORLD"})
+
+(defn session-data []
+  (re-frame/dispatch [:home/fetch-session-data fake-data]))
 
 (def routes
   [["/"
     {:name        :home
      :view        home/view
      :text        "Home"
-     :controllers [{:start (println "start" "Home")
+     :controllers [{:start (session-data)
                     :stop  (println "stop" "Home")}]}]])
 
 (defonce match (r/atom nil))

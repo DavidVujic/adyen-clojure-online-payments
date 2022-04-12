@@ -5,7 +5,8 @@
 (def service-map
   {::http/routes routing/routes
    ::http/type   :jetty
-   ::http/port   8090})
+   ::http/port   8090
+   ::http/allowed-origins ["http://localhost:8080"]})
 
 (defn start [options]
   (http/start (http/create-server options)))
