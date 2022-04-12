@@ -1,19 +1,11 @@
 (ns adyen.frontend.views.home.core
   (:require [adyen.frontend.views.home.events]
-            [adyen.frontend.views.home.subs]
-            [re-frame.core :as re-frame]))
+            [adyen.frontend.views.home.subs]))
 
 (defn header []
   [:<>
-   [:h1 "Hello World"]
-   [:p "Yes, this is the Home view."]])
-
-(defn server-response-data []
-  (let [data @(re-frame/subscribe [:home/session-data])]
-    (when data
-      [:<>
-       [:p [:strong "Got this from the server:"]]
-       [:pre (str data)]])))
+   [:h1 "ClojureScript and Adyen"]
+   [:p "This is an example web app using the Dropin UI."]])
 
 (defn drop-in-container []
   [:div#dropin-container])
@@ -23,8 +15,5 @@
    [:section
     [header]]
 
-   [:section
-    [server-response-data]]
-
-   [:section {:style {:width 400}}
+   [:section {:style {:max-width 600}}
     [drop-in-container]]])

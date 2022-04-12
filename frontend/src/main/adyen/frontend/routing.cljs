@@ -7,18 +7,19 @@
    [reitit.frontend.easy :as rfe]
    [re-frame.core :as re-frame]))
 
-(def fake-data {:amount 1000 :currency "EUR" :reference "HELLOWORLD"})
+(def some-fake-test-data {:amount    1000
+                          :currency  "EUR"
+                          :reference "HELLOWORLD"})
 
 (defn session-data []
-  (re-frame/dispatch [:home/fetch-session-data fake-data]))
+  (re-frame/dispatch [:home/fetch-session-data some-fake-test-data]))
 
 (def routes
   [["/"
     {:name        :home
      :view        home/view
      :text        "Home"
-     :controllers [{:start (session-data)
-                    :stop  (println "stop" "Home")}]}]])
+     :controllers [{:start (session-data)}]}]])
 
 (defonce match (r/atom nil))
 (def router (rf/router routes {:data {:coercion rss/coercion}}))

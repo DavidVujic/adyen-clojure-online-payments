@@ -6,8 +6,9 @@
    [reagent.dom :as rd]))
 
 (defn main []
-  [:div
-   [navigation/list-routes routing/routes]
+  [:<>
+   [:nav
+    [navigation/list-routes routing/routes]]
 
    (let [match @routing/match]
      (if match
