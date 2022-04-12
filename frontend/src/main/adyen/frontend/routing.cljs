@@ -1,7 +1,6 @@
 (ns adyen.frontend.routing
   (:require
-   [adyen.frontend.views.about :as about]
-   [adyen.frontend.views.home :as home]
+   [adyen.frontend.views.home.core :as home]
    [reagent.core :as r]
    [reitit.coercion.spec :as rss]
    [reitit.frontend :as rf]
@@ -9,14 +8,11 @@
 
 (def routes
   [["/"
-    {:name :home
-     :view home/view
-     :text "Home"}]
-
-   ["/about"
-    {:name :about
-     :view about/view
-     :text "About"}]])
+    {:name        :home
+     :view        home/view
+     :text        "Home"
+     :controllers [{:start (println "start" "Home")
+                    :stop  (println "stop" "Home")}]}]])
 
 (defonce match (r/atom nil))
 (def router (rf/router routes {:data {:coercion rss/coercion}}))

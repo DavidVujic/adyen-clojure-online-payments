@@ -5,6 +5,7 @@
     "shadow-cljs": "2.18.0"
   },
   "dependencies": {
+    "@adyen/adyen-web": "^5.13.0",
     "react": "17.x",
     "react-dom": "17.x"
   }
